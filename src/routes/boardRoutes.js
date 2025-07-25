@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { createBoard, getBoardsFromWorkspace, updateBoard, deleteBoard } = require('../controllers/boardController');
+const { protect } = require('../middleware/authMiddleware');
+const { checkRole } = require('../middleware/permissionMiddleware');
+router.use(protect);
+router.post('/workspaces/:workspaceId/boards', createBoard);
+router.get('/workspaces/:workspaceId/boards', getBoardsFromWorkspace);
+router.patch('/boards/:boardId', checkRole(['Owner']), updateBoard);
+router.delete('/boards/:boardId', checkRole(['Owner']), deleteBoard);
+module.exports = router;

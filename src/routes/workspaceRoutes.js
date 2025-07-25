@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { createWorkspace, getWorkspaces, addMemberToWorkspace, deleteWorkspace } = require('../controllers/workspaceController');
+const { protect } = require('../middleware/authMiddleware');
+router.use(protect);
+router.post('/workspaces', createWorkspace);
+router.get('/workspaces', getWorkspaces);
+router.post('/workspaces/:workspaceId/members', addMemberToWorkspace);
+router.delete('/workspaces/:workspaceId', deleteWorkspace);
+module.exports = router;

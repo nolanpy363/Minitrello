@@ -1,0 +1,15 @@
+const express = require('express');
+const router = express.Router();
+const { createCardInList, getCardsInList, moveCard, updateCard, deleteCard, assignMemberToCard } = require('../controllers/cardController');
+const { addCommentToCard, getCommentsFromCard } = require('../controllers/commentController');
+const { protect } = require('../middleware/authMiddleware');
+router.use(protect);
+router.post('/lists/:listId/cards', createCardInList);
+router.get('/lists/:listId/cards', getCardsInList);
+router.patch('/cards/:cardId/move', moveCard);
+router.patch('/cards/:cardId', updateCard);
+router.delete('/cards/:cardId', deleteCard);
+router.post('/cards/:cardId/assignees', assignMemberToCard);
+router.post('/cards/:cardId/comments', addCommentToCard);
+router.get('/cards/:cardId/comments', getCommentsFromCard);
+module.exports = router;
