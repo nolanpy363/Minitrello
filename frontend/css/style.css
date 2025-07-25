@@ -1,0 +1,58 @@
+/* --- ESTILOS GLOBALES --- */
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f5f7; margin: 0; }
+h1, h2, h3 { color: #172b4d; margin: 0; padding: 0;}
+.container { padding: 20px; }
+.form-group { margin-bottom: 20px; text-align: left; }
+label { display: block; margin-bottom: 8px; color: #5e6c84; font-weight: 600; }
+input[type="email"], input[type="password"], input[type="text"] { width: 100%; padding: 10px; border: 2px solid #dfe1e6; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+input:focus { border-color: #0079bf; outline: none; }
+button { font-family: inherit; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 3px; border: none; }
+.error-text { color: #de350b; margin-top: 15px; min-height: 20px; }
+.hidden { display: none !important; }
+
+/* --- PÁGINA DE LOGIN Y REGISTRO --- */
+body.login-page { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.form-container { background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 320px; text-align: center; }
+.form-container button[type="submit"] { width: 100%; padding: 12px; }
+.password-wrapper { position: relative; height: 45px; margin-bottom: 8px; }
+.password-input { position: absolute; top: 0; left: 0; }
+.password-input:not(.active) { display: none; }
+.show-password-container { display: flex; align-items: center; margin-bottom: 16px; }
+.switch-form-link { margin-top: 20px; font-size: 14px; color: #5e6c84; }
+.switch-form-link a { color: #0079bf; text-decoration: none; font-weight: bold; }
+
+/* --- APP GENERAL (HEADER, DASHBOARD, ETC) --- */
+.main-header { background-color: #026aa7; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 10; }
+.logo a { color: white; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
+#logout-button { background-color: hsla(0,0%,100%,.3); color: white; padding: 8px 12px; }
+.dashboard-container { padding-top: 80px; padding-left: 40px; padding-right: 40px; max-width: 1200px; margin: 0 auto; }
+.workspaces-header, .boards-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.btn-primary { background-color: #0079bf; color: white; padding: 10px 15px; }
+.btn-secondary { background-color: #dfe1e6; color: #172d4d; padding: 10px 15px; }
+.form-create-container { background-color: #ebecf0; padding: 20px; border-radius: 8px; margin-bottom: 20px; overflow: hidden; max-height: 500px; opacity: 1; transition: all 0.4s ease-in-out; }
+.form-create-container.hidden { max-height: 0; opacity: 0; margin: 0; padding: 0 20px; }
+.form-actions { display: flex; gap: 10px; margin-top: 15px; }
+.workspaces-grid, .boards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-top: 20px; }
+.workspace-card { background-color: white; padding: 16px; border-radius: 8px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); cursor: pointer; }
+.board-card { background-color: #0079bf; color: white; padding: 16px; border-radius: 8px; min-height: 80px; cursor: pointer; }
+
+/* --- "FLOW" (ANIMACIONES) --- */
+.workspace-card, .board-card { transition: transform 0.2s, box-shadow 0.2s; }
+.workspace-card:hover, .board-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.card-enter-animation { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
+
+/* --- VISTA DE TABLERO --- */
+body.board-view { background-color: #0079bf; }
+.board-container { padding: 20px; padding-top: 80px; }
+.board-header h2 { color: white; }
+.lists-container { display: flex; gap: 10px; align-items: flex-start; overflow-x: auto; height: calc(100vh - 120px); }
+.list { background-color: #ebecf0; border-radius: 3px; width: 272px; flex-shrink: 0; padding: 8px; display: flex; flex-direction: column; }
+.list-header { font-weight: bold; padding: 4px 8px; margin-bottom: 8px; }
+.cards-container { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; flex-grow: 1; }
+.card { background-color: white; border-radius: 3px; box-shadow: 0 1px 0 rgba(9,30,66,.25); padding: 8px; cursor: pointer; }
+.add-list-container { background-color: hsla(0,0%,100%,.24); }
+.add-list-container input { width: 100%; box-sizing: border-box; background: transparent; border: 2px solid hsla(0,0%,100%,.4); color: white; font-weight: bold; padding: 8px; border-radius: 3px; margin-bottom: 8px; }
+.add-list-container input::placeholder { color: hsla(0,0%,100%,.8); }
+.add-card-form { margin-top: 8px; }
+.add-card-form input { margin-bottom: 8px; }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniTrello - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo"><a href="dashboard.html">MiniTrello</a></div>
+        <div class="user-info">
+            <span id="user-greeting"></span>
+            <button id="logout-button">Cerrar Sesión</button>
+        </div>
+    </header>
+    <main class="dashboard-container">
+        <div class="workspaces-header">
+            <h2>Mis Espacios de Trabajo</h2>
+            <button id="show-create-workspace-form-btn" class="btn-primary">+ Crear Espacio</button>
+        </div>
+        <div id="create-workspace-container" class="form-create-container hidden">
+            <form id="create-workspace-form">
+                <h3>Nuevo Espacio de Trabajo</h3>
+                <div class="form-group">
+                    <label for="workspace-name">Nombre</label>
+                    <input type="text" id="workspace-name" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Crear</button>
+                    <button type="button" id="cancel-create-btn" class="btn-secondary">Cancelar</button>
+                </div>
+            </form>
+        </div>
+        <div id="workspaces-list" class="workspaces-grid"></div>
+    </main>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
